@@ -1,0 +1,13 @@
+{
+  "apps": [
+    {
+      "name": "api",
+      "script": "./index.js",
+      "instances": "max",
+      "exec_mode": "cluster",
+      "env_production": {
+        "NODE_ENV": "production"
+      }
+    }
+  ]
+}

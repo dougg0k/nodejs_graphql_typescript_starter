@@ -1,0 +1,10 @@
+.idea/
+.vscode/
+.vs/
+node_modules/
+build/
+.env.development
+.env.production
+logs
+*.log
+npm-debug.log*
