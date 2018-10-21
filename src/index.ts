@@ -31,10 +31,7 @@ const startServer = async () => {
 
   const server = new ApolloServer({
     schema,
-    context: ({ req }: any) => ({ req }),
-    playground: {
-      endpoint: "/playground"
-    }
+    context: ({ req }: any) => ({ req })
   });
 
   await createConnection();

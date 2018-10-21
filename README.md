@@ -14,3 +14,11 @@
 1. Change the database name in ormconfig.js
 2. Create the database in postgres
 3. Change the env variables accordingly
+
+##########################################################
+
+- Docker:
+  - docker build -t your_app_image_name:latest .
+  - docker run --name your_api_name -p 4000:4000 --net=host --restart unless-stopped -itd your_api_image_name:tag
+
+Consider using --net=host if you have a postgres db created in another docker container.

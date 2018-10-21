@@ -1,3 +1,4 @@
+const isDev = process.env.NODE_ENV === "development";
 module.exports = {
   type: "postgres",
   host: process.env.DATABASE_HOST,
@@ -6,10 +7,10 @@ module.exports = {
   password: process.env.DATABASE_PASSWORD,
   database: "graphql_starter",
   logging: false,
-  synchronize: process.env.NODE_ENV === "development",
-  entities: ["src/entities/**/*"],
-  migrations: ["src/migrations/**/*"],
-  subscribers: ["src/subscribers/**/*"],
+  synchronize: isDev,
+  entities: isDev ? ["src/entities/**/*"] : ["entities/**/*"],
+  migrations: isDev ? ["src/migrations/**/*"] : ["migrations/**/*"],
+  subscribers: isDev ? ["src/subscribers/**/*"] : ["subscribers/**/*"],
   "cli.entitiesDir": "src/entities/",
   "cli.migrationsDir": "src/migrations/",
   "cli.subscribersDir": "src/subscribers/"

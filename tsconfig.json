@@ -22,5 +22,5 @@
     "experimentalDecorators": true
   },
   "exclude": ["node_modules"],
-  "include": ["./src/**/*.ts", "interface.d.ts", "ormconfig.js"]
+  "include": ["./src/**/*.ts"]
 }

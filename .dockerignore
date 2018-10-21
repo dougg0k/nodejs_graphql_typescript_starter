@@ -1,6 +1,5 @@
-*
-!./package.json
-!.env.production
-!.env
-!./ormconfig.js
-!./dist
+.env.development
+.env.example
+.gitignore
+README.md
+tslint.json
