@@ -7,9 +7,9 @@ module.exports = {
   database: "graphql_starter",
   logging: false,
   synchronize: process.env.NODE_ENV === "development",
-  entities: ["src/entities/**/*.ts"],
-  migrations: ["src/migrations/**/*.ts"],
-  subscribers: ["src/subscribers/**/*.ts"],
+  entities: ["src/entities/**/*"],
+  migrations: ["src/migrations/**/*"],
+  subscribers: ["src/subscribers/**/*"],
   "cli.entitiesDir": "src/entities/",
   "cli.migrationsDir": "src/migrations/",
   "cli.subscribersDir": "src/subscribers/"

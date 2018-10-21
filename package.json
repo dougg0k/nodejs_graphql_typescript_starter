@@ -7,12 +7,10 @@
     "test": "cross-env NODE_ENV=test mocha -r ts-node/register tests/**/*.test.ts --reporter spec",
     "test:watch": "cross-env NODE_ENV=test mocha -r ts-node/register tests/**/*.test.ts --reporter spec --watch",
     "start:production": "pm2 start cluster.json --env production",
-    "preinstall": "npm i -g pm2",
-    "build": "rimraf ./dist && tsc"
+    "build": "rimraf ./dist && tsc -b"
   },
   "devDependencies": {
     "@types/app-root-path": "^1.2.4",
-    "@types/argon2": "^0.15.0",
     "@types/chai": "^4.1.6",
     "@types/compression": "0.0.36",
     "@types/dotenv": "^4.0.3",
@@ -24,7 +22,6 @@
     "@types/morgan": "^1.7.35",
     "@types/node": "^10.12.0",
     "@types/sinon": "^5.0.5",
-    "@types/winston": "^2.4.4",
     "chai": "^4.2.0",
     "chai-http": "^4.2.0",
     "cross-env": "^5.2.0",
