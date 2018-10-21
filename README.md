@@ -1,8 +1,13 @@
-- For JWT - jsonwebtoken
-- For Session Cookies - express-session
+- Security
 
-- For permission layer - graphql-shield
-- Handle Upload - graphql-middleware-apollo-upload-server
+  - https://github.com/auth0/node-jsonwebtoken
+  - https://github.com/expressjs/session
+
+- For permission layer - https://github.com/maticzav/graphql-shield
+- Handle Upload
+  - https://github.com/homeroom-live/graphql-middleware-apollo-upload-server
+  - https://github.com/jaydenseric/graphql-upload
+- String(regex) validation - https://github.com/chriso/validator.js
 
 #########################################################
 
