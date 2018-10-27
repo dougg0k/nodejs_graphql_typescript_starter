@@ -3,8 +3,8 @@
 .vs/
 node_modules/
 build/
-.env.development
-.env.production
+.env
 logs
 *.log
 npm-debug.log*
+pgdata/

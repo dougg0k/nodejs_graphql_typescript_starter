@@ -9,6 +9,7 @@ const userSchema: GraphQLSchema = makeExecutableSchema({
     }
 
     type Query {
+      helloUser: String
       userById(id: ID!): User
     }
 

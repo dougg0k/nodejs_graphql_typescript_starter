@@ -1,4 +1,5 @@
 import "reflect-metadata";
+import * as dotenv from "dotenv";
 import { createConnection } from "typeorm";
 import { ApolloServer } from "apollo-server-express";
 import * as express from "express";
@@ -9,7 +10,8 @@ import * as rateLimit from "express-rate-limit";
 
 import { createSchema } from "./utils/mergeSchemas";
 import { logger } from "./utils/logger";
-import "./utils/envConfig";
+
+dotenv.config();
 
 const setupApp = () => {
   const app = express();
