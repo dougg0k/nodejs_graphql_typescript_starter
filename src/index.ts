@@ -43,6 +43,14 @@ const startServer = async (): Promise<void> => {
 
   app.register(server.createHandler());
   app.listen({ port: 4000 }, () => console.log(`🚀 Server ready at port 4000`));
+
+  process.on('uncaughtException', error => {
+    console.error(
+      `${new Date().toUTCString()} uncaughtException:`,
+      error.message,
+    );
+    process.exit(1);
+  });
 };
 
 startServer();
