@@ -1,10 +1,10 @@
-import { IResolvers } from "graphql-tools";
+import { IResolvers } from 'graphql-tools';
 
 const userResolver: IResolvers = {
   Query: {
     helloUser: async (_, __, ___) => {
-      return "Hello User";
-    }
+      return 'Hello User';
+    },
     // queryName: async (obj, args, context, info) => {
     //   // return
     // }
@@ -13,7 +13,7 @@ const userResolver: IResolvers = {
     // mutationName: async (parent, args, context, info) => {
     //   // return
     // }
-  }
+  },
 };
 
 // You can mock here if you need

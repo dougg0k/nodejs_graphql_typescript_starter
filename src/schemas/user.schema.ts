@@ -1,5 +1,5 @@
-import { GraphQLSchema } from "graphql";
-import { makeExecutableSchema, gql } from "apollo-server-express";
+import { gql, makeExecutableSchema } from 'apollo-server-fastify';
+import { GraphQLSchema } from 'graphql';
 
 const userSchema: GraphQLSchema = makeExecutableSchema({
   typeDefs: gql`
@@ -16,7 +16,7 @@ const userSchema: GraphQLSchema = makeExecutableSchema({
     type Mutation {
       createUser: User
     }
-  `
+  `,
 });
 
 export default userSchema;
