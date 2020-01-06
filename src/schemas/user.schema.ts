@@ -1,8 +1,8 @@
-import { gql, makeExecutableSchema } from 'apollo-server-fastify';
 import { GraphQLSchema } from 'graphql';
+import { makeExecutableSchema } from 'graphql-tools';
 
 const userSchema: GraphQLSchema = makeExecutableSchema({
-  typeDefs: gql`
+  typeDefs: `
     type User {
       id: ID!
       email: String
