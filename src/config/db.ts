@@ -1,12 +1,12 @@
 import { MikroORM } from "mikro-orm";
-import { User } from "../entities/User";
+import entities from "../entities";
 
 async function db() {
   return await MikroORM.init({
-    entities: [User],
+    entities,
     entitiesDirs: ["../entities"],
     entitiesDirsTs: ["../entities"],
-    dbName: "db-name",
+    dbName: String(process.env.DATABASE_DB),
     baseDir: __dirname,
     debug: process.env.NODE_ENV === "development",
     logger: console.log.bind(console),
