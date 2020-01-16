@@ -8,7 +8,7 @@
     "test": "cross-env NODE_ENV=test jest --colors",
     "test:watch": "cross-env NODE_ENV=test jest --colors --watch",
     "build": "rimraf ./dist && tsc -b",
-    "typeorm": "node ./node_modules/typeorm/cli.js"
+    "mikro-orm": "npx mikro-orm"
   },
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
@@ -65,8 +65,7 @@
   "lint-staged": {
     "*.ts": [
       "eslint . --ext .ts --fix",
-      "prettier --check src/**/*.ts --write",
-      "git add"
+      "prettier --check src/**/*.ts --write"
     ]
   }
 }
