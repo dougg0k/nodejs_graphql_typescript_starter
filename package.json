@@ -8,9 +8,6 @@
     "test": "cross-env NODE_ENV=test jest --colors",
     "test:watch": "cross-env NODE_ENV=test jest --colors --watch",
     "build": "rimraf ./dist && tsc -b",
-    "lint:fix": "eslint . --ext .ts --fix",
-    "lint:style": "prettier --check src/**/*.ts",
-    "lint": "npm run lint:fix && npm run lint:style",
     "typeorm": "node ./node_modules/typeorm/cli.js"
   },
   "devDependencies": {
@@ -19,6 +16,7 @@
     "@types/helmet": "0.0.45",
     "@types/jest": "^24.9.0",
     "@types/node": "^13.1.7",
+    "@types/pg": "^7.14.1",
     "@typescript-eslint/eslint-plugin": "^2.16.0",
     "@typescript-eslint/parser": "^2.16.0",
     "cross-env": "^6.0.3",
@@ -29,6 +27,7 @@
     "eslint-plugin-prettier": "^3.1.2",
     "husky": "^4.0.10",
     "jest": "^24.9.0",
+    "lint-staged": "^10.0.0-beta.15",
     "prettier": "1.19.1",
     "rimraf": "^3.0.0",
     "supertest": "^4.0.2",
@@ -48,13 +47,26 @@
     "graphql": "^14.5.8",
     "graphql-tools": "^4.0.6",
     "merge-graphql-schemas": "^1.7.6",
-    "pg": "^7.17.1",
-    "reflect-metadata": "^0.1.13",
-    "typeorm": "^0.2.22"
+    "mikro-orm": "^3.0.0",
+    "pg": "^7.17.1"
+  },
+  "mikro-orm": {
+    "useTsNode": true,
+    "configPaths": [
+      "./src/config/db.ts",
+      "./dist/config/db.js"
+    ]
   },
   "husky": {
     "hooks": {
-      "pre-commit": ""
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint . --ext .ts --fix",
+      "prettier --check src/**/*.ts --write",
+      "git add"
+    ]
   }
 }

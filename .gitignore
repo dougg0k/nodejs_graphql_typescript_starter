@@ -11,3 +11,4 @@ pgdata/
 dist/
 coverage/
 .xml
+temp/
