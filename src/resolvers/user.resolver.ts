@@ -1,21 +1,21 @@
-import { IResolvers } from 'graphql-tools';
+import { IResolvers } from "graphql-tools";
 
 const userResolver: IResolvers = {
-  Query: {
-    helloUser: async (_, __, ___) => {
-      return 'Hello User';
+  User: {
+    email: () => {
+      return "email@email.com";
     },
-    // queryName: async (obj, args, context, info) => {
-    //   // return
-    // }
+  },
+  Query: {
+    getUser: async (parent, args, context, info) => {
+      return { email: "user@user.com" };
+    },
   },
   Mutation: {
-    // mutationName: async (parent, args, context, info) => {
-    //   // return
-    // }
+    createUser: () => {
+      return "String";
+    },
   },
 };
-
-// You can mock here if you need
 
 export default userResolver;

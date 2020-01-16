@@ -8,3 +8,6 @@ logs
 *.log
 npm-debug.log*
 pgdata/
+dist/
+coverage/
+.xml

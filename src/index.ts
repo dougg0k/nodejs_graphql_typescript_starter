@@ -1,17 +1,16 @@
-import * as dotenv from 'dotenv';
-import * as fastify from 'fastify';
-import * as cors from 'fastify-cors';
-import * as helmet from 'fastify-helmet';
-import * as rateLimiter from 'fastify-rate-limit';
-import 'reflect-metadata';
-import { createConnection } from 'typeorm';
-import { createSchema } from './utils/mergeSchemas';
-const GQL = require('fastify-gql');
+import * as dotenv from "dotenv";
+import * as fastify from "fastify";
+import * as cors from "fastify-cors";
+import * as helmet from "fastify-helmet";
+import * as rateLimiter from "fastify-rate-limit";
+import "reflect-metadata";
+import { createConnection } from "typeorm";
+import schema from "./utils/buildSchema";
+import GQL = require("fastify-gql");
 
 dotenv.config();
 
 async function setupApp(): Promise<fastify.FastifyInstance> {
-  const schema = await createSchema();
   const app = fastify();
 
   app.register(helmet);
@@ -27,7 +26,7 @@ async function setupApp(): Promise<fastify.FastifyInstance> {
     schema,
     jit: 1,
     routes: true,
-    graphiql: 'playground',
+    ide: "playground",
     context: ({ req }: any) => ({ req }),
   });
 
@@ -35,15 +34,15 @@ async function setupApp(): Promise<fastify.FastifyInstance> {
 }
 
 function watchForErrors(app: any, db: any): void {
-  process.on('uncaughtException', error => {
+  process.on("uncaughtException", error => {
     const currentDate = new Date().toUTCString();
     app.log.error(`${currentDate} - uncaughtException: `, error);
     process.exit(1);
   });
-  process.on('unhandledRejection', error => {
-    app.log.error('uncaughtRejection: ', error);
+  process.on("unhandledRejection", error => {
+    app.log.error("uncaughtRejection: ", error);
   });
-  process.on('SIGINT', async () => {
+  process.on("SIGINT", async () => {
     try {
       await db.close();
       process.exit(0);
