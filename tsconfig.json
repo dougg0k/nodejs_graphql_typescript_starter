@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "ES2019",
     "module": "commonjs",
-    "lib": ["es6", "es2017", "esnext.asynciterable", "dom"],
+    "lib": ["ES2019"],
     "sourceMap": true,
     "outDir": "./dist",
     "rootDir": ".",
@@ -20,6 +20,6 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true
   },
-  "exclude": ["node_modules", "**/*.test.ts", "**/*.spec.ts"],
-  "include": ["./src/**/*.ts", "**/typings.d.ts", "**/*.setup.ts"]
+  "exclude": ["node_modules"],
+  "include": ["./src/**/*.ts", "typings.d.ts", "./tests/**/*.ts"]
 }
