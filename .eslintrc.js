@@ -1,6 +1,6 @@
 module.exports = {
   parser: "@typescript-eslint/parser",
-  plugins: ["@typescript-eslint", "graphql", "prettier"],
+  plugins: ["@typescript-eslint", "prettier"],
   extends: [
     "plugin:@typescript-eslint/recommended",
     "prettier/@typescript-eslint",
