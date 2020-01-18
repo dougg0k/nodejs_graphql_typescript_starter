@@ -33,7 +33,7 @@ async function setupApp(): Promise<SetupApp> {
     jit: 1,
     routes: true,
     ide: "playground",
-    context: ({ req }: any) => ({ req, db: orm }),
+    context: () => ({ db: orm }),
   });
 
   return { app, db: orm };
