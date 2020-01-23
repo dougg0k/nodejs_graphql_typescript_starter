@@ -34,6 +34,10 @@ async function setupApp(): Promise<SetupApp> {
 		routes: true,
 		ide: "playground",
 		context: () => ({ db: orm, log: app.log }),
+		errorHandler: (error: fastify.FastifyError) => {
+			app.log.error(error.message);
+			return error;
+		},
 	});
 
 	return { app, db: orm };
