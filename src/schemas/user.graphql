@@ -1,11 +1,12 @@
 type Query {
-  getUser: User
+	getUser: User
 }
 
 type Mutation {
-  createUser: String
+	createUser: String
 }
 
 type User {
-  email: String
+	email: String
+	name: String
 }
