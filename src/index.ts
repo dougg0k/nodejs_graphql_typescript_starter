@@ -4,7 +4,7 @@ import * as cors from "fastify-cors";
 import * as helmet from "fastify-helmet";
 import * as rateLimiter from "fastify-rate-limit";
 import { MikroORM } from "mikro-orm";
-import db from "./config/db";
+import { db } from "./config/db";
 import schema from "./utils/buildSchema";
 import GQL = require("fastify-gql");
 
