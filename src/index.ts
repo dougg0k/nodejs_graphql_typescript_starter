@@ -1,15 +1,12 @@
-import * as dotenv from "dotenv";
 import * as fastify from "fastify";
 import * as cors from "fastify-cors";
 import * as helmet from "fastify-helmet";
 import * as rateLimiter from "fastify-rate-limit";
 import { MikroORM } from "mikro-orm";
+import config from "./config";
 import { db } from "./config/db";
 import schema from "./utils/buildSchema";
 import GQL = require("fastify-gql");
-
-dotenv.config();
-
 interface SetupApp {
 	app: fastify.FastifyInstance;
 	db: MikroORM;
@@ -64,8 +61,10 @@ function watchForErrors(app: fastify.FastifyInstance, db: MikroORM): void {
 (async function(): Promise<void> {
 	const { app, db } = await setupApp();
 
-	const PORT = Number(process.env.APP_PORT) || 4000;
-	app.listen({ port: PORT }, () => console.log(`🚀 Server ready at port 4000`));
+	const PORT = config.api.port ?? 4000;
+	app.listen({ port: PORT }, () =>
+		app.log.info(`🚀 Server ready at port 4000`),
+	);
 
 	watchForErrors(app, db);
 })();

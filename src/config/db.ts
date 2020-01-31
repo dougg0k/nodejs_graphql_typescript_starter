@@ -1,20 +1,18 @@
-import * as dotenv from "dotenv";
 import { MikroORM } from "mikro-orm";
 import * as entities from "../entities";
-
-dotenv.config();
+import config from "./";
 
 const options = {
 	entities: Object.values(entities),
-	dbName: String(process.env.DATABASE_DB),
+	dbName: config.sqlDatabase.name,
 	baseDir: __dirname,
-	debug: process.env.NODE_ENV === "development",
+	debug: config.api.isDev,
 	logger: console.log.bind(console),
 	tsNode: true,
-	user: process.env.DATABASE_USER,
-	password: process.env.DATABASE_PASSWORD,
-	host: process.env.DATABASE_HOST,
-	port: Number(process.env.DATABASE_PORT),
+	user: config.sqlDatabase.user,
+	password: config.sqlDatabase.password,
+	host: config.sqlDatabase.host,
+	port: config.sqlDatabase.port,
 	type: "postgresql",
 	forceUtcTimezone: true,
 	strict: true,
